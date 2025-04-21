@@ -1,13 +1,15 @@
 'use client'
 
+import { useState } from 'react'
+import { useMutation } from 'convex/react'
+
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog'
 import { Input } from './ui/input'
 import { Button } from './ui/button'
+import { toast } from 'sonner'
 
 import { Id } from '../../convex/_generated/dataModel'
-import { useMutation } from 'convex/react'
 import { api } from '../../convex/_generated/api'
-import { useState } from 'react'
 
 interface RenameDialogProps {
     documentId: Id<'documents'>
@@ -31,6 +33,8 @@ export const RenameDialog = ({ documentId, initialTitle, children }: RenameDialo
             title: title.trim() || 'Untitled'
         })
             .then(() => setOpen(false))
+            .then(() => toast.success('Document renamed'))
+            .catch(() => toast.error('Failed to rename document'))
             .finally(() => {
                 setIsUpdating(false)
             })

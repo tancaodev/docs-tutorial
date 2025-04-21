@@ -1,7 +1,10 @@
 'use client'
 
+import { useEditorStore } from '@/store/use-editor-store'
+
 import Image from 'next/image'
 import Link from 'next/link'
+import { UserButton, OrganizationSwitcher } from '@clerk/nextjs'
 
 import {
     Menubar,
@@ -15,8 +18,8 @@ import {
     MenubarSubTrigger,
     MenubarTrigger
 } from '@/components/ui/menubar'
-
 import { DocumentInput } from './document-input'
+
 import {
     BoldIcon,
     FileIcon,
@@ -37,7 +40,6 @@ import {
 } from 'lucide-react'
 import { BsFilePdf } from 'react-icons/bs'
 
-import { useEditorStore } from '@/store/use-editor-store'
 
 export const Navbar = () => {
     const { editor } = useEditorStore()
@@ -201,6 +203,10 @@ export const Navbar = () => {
                     </div>
                 </div>
             </div>
+            <div className='flex gap-3 items-center pl-6'>
+                <OrganizationSwitcher afterCreateOrganizationUrl='/' afterLeaveOrganizationUrl='/' afterSelectOrganizationUrl='/' afterSelectPersonalUrl='/' />
+                <UserButton />
+            </div>  
         </nav>
     )
 }
