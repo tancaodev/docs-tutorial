@@ -6,7 +6,9 @@ import { Toaster } from '@/components/ui/sonner'
 
 import { ConvexClientProvider } from '@/components/convex-client-provider'
 
-import './globals.css'
+import "@liveblocks/react-ui/styles.css";
+import "@liveblocks/react-tiptap/styles.css";
+import "./globals.css";
 
 export const metadata: Metadata = {
     title: 'Create Next App',
