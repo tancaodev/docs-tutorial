@@ -19,6 +19,7 @@ import {
     MenubarTrigger
 } from '@/components/ui/menubar'
 import { DocumentInput } from './document-input'
+import { Avatars } from './avatar'
 
 import {
     BoldIcon,
@@ -39,7 +40,6 @@ import {
     Undo2Icon
 } from 'lucide-react'
 import { BsFilePdf } from 'react-icons/bs'
-
 
 export const Navbar = () => {
     const { editor } = useEditorStore()
@@ -204,9 +204,10 @@ export const Navbar = () => {
                 </div>
             </div>
             <div className='flex gap-3 items-center pl-6'>
+                <Avatars />
                 <OrganizationSwitcher afterCreateOrganizationUrl='/' afterLeaveOrganizationUrl='/' afterSelectOrganizationUrl='/' afterSelectPersonalUrl='/' />
                 <UserButton />
-            </div>  
+            </div>
         </nav>
     )
 }

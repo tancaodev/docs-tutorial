@@ -48,6 +48,15 @@ export const get = query({
     }
 })
 
+/**
+ * The `create` mutation function is used to create a new document.
+ * - Accepts optional parameters: `title` (the document's title) and `initialContent` (the initial content of the document).
+ * - Authenticates the user; throws an "Unauthorized" error if the user is not logged in.
+ * - If the user belongs to an organization, the document will be associated with that organization.
+ * - If no title is provided, defaults to "Untitled".
+ * - If no initial content is provided, defaults to an empty string.
+ * - Returns the result of inserting the new document into the database.
+ */
 export const create = mutation({
     args: {
         title: v.optional(v.string()),
