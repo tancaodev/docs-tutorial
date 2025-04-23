@@ -20,6 +20,7 @@ import {
 } from '@/components/ui/menubar'
 import { DocumentInput } from './document-input'
 import { Avatars } from './avatar'
+import { Inbox } from './inbox'
 
 import {
     BoldIcon,
@@ -204,6 +205,7 @@ export const Navbar = () => {
                 </div>
             </div>
             <div className='flex gap-3 items-center pl-6'>
+                <Inbox />
                 <Avatars />
                 <OrganizationSwitcher afterCreateOrganizationUrl='/' afterLeaveOrganizationUrl='/' afterSelectOrganizationUrl='/' afterSelectPersonalUrl='/' />
                 <UserButton />
