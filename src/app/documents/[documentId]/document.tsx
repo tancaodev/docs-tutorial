@@ -1,6 +1,6 @@
 'use client'
 
-import { Preloaded, usePaginatedQuery, usePreloadedQuery } from 'convex/react'
+import { Preloaded, usePreloadedQuery } from 'convex/react'
 
 import { Editor } from './editor'
 import { Navbar } from './navbar'

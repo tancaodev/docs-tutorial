@@ -1,6 +1,6 @@
 'use client'
 
-import { use, useState } from 'react'
+import { useState } from 'react'
 import { cn } from '@/lib/utils'
 import { type ColorResult, SketchPicker } from 'react-color'
 import { type Level } from '@tiptap/extension-heading'

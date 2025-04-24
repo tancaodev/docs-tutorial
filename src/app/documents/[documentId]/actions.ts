@@ -24,7 +24,7 @@ export async function getUsers() {
         id: user.id,
         name: user.fullName ?? user.primaryEmailAddress?.emailAddress ?? 'Anonymouse',
         avatar: user.imageUrl,
-        color: `hsl(${Math.abs(user.id.charCodeAt(0)) % 360}, 80%, 60%)`
+        color: ''
     }))
 
     return users
