@@ -23,7 +23,8 @@ export async function getUsers() {
     const users = response.data.map((user) => ({
         id: user.id,
         name: user.fullName ?? user.primaryEmailAddress?.emailAddress ?? 'Anonymouse',
-        avatar: user.imageUrl
+        avatar: user.imageUrl,
+        color: `hsl(${Math.abs(user.id.charCodeAt(0)) % 360}, 80%, 60%)`
     }))
 
     return users

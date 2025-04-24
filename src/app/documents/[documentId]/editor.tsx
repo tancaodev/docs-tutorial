@@ -27,10 +27,16 @@ import { useStorage } from '@liveblocks/react'
 import { Ruler } from './ruler'
 import { Threads } from './threads'
 
-export const Editor = () => {
-    const storage = useStorage((root) => root) || { leftMargin: 56, rightMargin: 56 }
+import { LEFT_MARGIN_DEFAULT, RIGHT_MARGIN_DEFAULT } from '@/constants/margins'
+
+interface EditorProps {
+    initialContent?: string | undefined
+}
+
+export const Editor = ({ initialContent }: EditorProps) => {
+    const storage = useStorage((root) => root) || { leftMargin: LEFT_MARGIN_DEFAULT, rightMargin: RIGHT_MARGIN_DEFAULT }
     const { leftMargin, rightMargin } = storage
-    const liveblocks = useLiveblocksExtension()
+    const liveblocks = useLiveblocksExtension({ initialContent, offlineSupport_experimental: true })
     const { setEditor } = useEditorStore()
 
     const editor = useEditor({
@@ -91,7 +97,7 @@ export const Editor = () => {
             TextStyle,
             Underline,
             Image,
-            ImageResize,
+            // ImageResize,
             Table,
             TableCell,
             TableHeader,
@@ -108,8 +114,8 @@ export const Editor = () => {
             <Ruler />
             <div className='min-w-max flex justify-center w-[816px] py-4 print:py-0 mx-auto print:w-full print:min-w-0'>
                 <EditorContent editor={editor} />
+                <Threads editor={editor} />
             </div>
-            <Threads editor={editor} />
         </div>
     )
 }
